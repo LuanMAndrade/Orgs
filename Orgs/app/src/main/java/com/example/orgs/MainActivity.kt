@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         Log.i("teste", "Até aqui foi3")
         recyclerView.adapter = ListaProdutos(this, dao.search())
-        Log.i("teste", "Até aqui foi4")
         val fab = findViewById<FloatingActionButton>(R.id.floatingActionButton)
         Log.i("teste", "Até aqui foi5")
         fab.setOnClickListener { startActivity(Intent(this, FormularioActivity::class.java)) }
