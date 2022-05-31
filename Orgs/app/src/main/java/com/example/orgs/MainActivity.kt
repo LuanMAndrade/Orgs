@@ -9,23 +9,23 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
-    val dao = ProdutosDAO()
 
+    private val dao = ProdutosDAO()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
     }
+
 
     override fun onResume() {
         super.onResume()
-
-        Log.i("teste", "Até aqui foi1")
-        dao.add(Produto("luan", "Muniz", "00"))
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        recyclerView.adapter = ListaProdutos(this, dao.search())
+        val adapter = ListaProdutos(this, dao.search())
+        recyclerView.adapter = adapter
         val fab = findViewById<FloatingActionButton>(R.id.floatingActionButton)
-        Log.i("teste", "Até aqui foi5")
         fab.setOnClickListener { startActivity(Intent(this, FormularioActivity::class.java)) }
+
     }
 }
