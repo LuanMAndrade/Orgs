@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         Log.i("teste", "Até aqui foi1")
         dao.add(Produto("luan", "Muniz", "00"))
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        Log.i("teste", "Até aqui foi3")
         recyclerView.adapter = ListaProdutos(this, dao.search())
         val fab = findViewById<FloatingActionButton>(R.id.floatingActionButton)
         Log.i("teste", "Até aqui foi5")
