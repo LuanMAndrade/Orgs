@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
 
         Log.i("teste", "Até aqui foi1")
         dao.add(Produto("luan", "Muniz", "00"))
-        Log.i("teste", "Até aqui foi2")
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         Log.i("teste", "Até aqui foi3")
         recyclerView.adapter = ListaProdutos(this, dao.search())
