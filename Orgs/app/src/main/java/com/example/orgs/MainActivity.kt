@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     private val dao = ProdutosDAO()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
