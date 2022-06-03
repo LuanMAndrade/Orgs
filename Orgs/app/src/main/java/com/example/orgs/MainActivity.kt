@@ -2,6 +2,7 @@ package com.example.orgs
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.orgs.databinding.ActivityMainBinding
 
@@ -25,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         configuraFab()
         adapter.atualiza(dao.search())
-
     }
 
     private fun configuraFab() {

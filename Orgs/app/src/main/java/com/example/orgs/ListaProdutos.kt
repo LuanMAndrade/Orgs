@@ -3,14 +3,18 @@ package com.example.orgs
 import android.content.Context
 import android.icu.text.NumberFormat
 import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.example.orgs.databinding.CaixaDialogoBinding
 import com.example.orgs.databinding.ProdutoBinding
 import java.util.*
-
 
 
 class ListaProdutos(private val context: Context, lista: List<Produto>) :
@@ -33,6 +37,7 @@ class ListaProdutos(private val context: Context, lista: List<Produto>) :
             }
             val valorEmMoeda = formatador.format(produto.valor)
             valor.text = valorEmMoeda
+            itemView.findViewById<ImageView>(R.id.imageView).load(produto.image)
 
         }
     }

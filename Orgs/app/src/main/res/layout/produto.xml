@@ -64,7 +64,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintWidth_percent="0.3"
-        app:srcCompat="@drawable/frutas" />
+        tools:srcCompat="@drawable/frutas" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
