@@ -19,7 +19,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/frutas" />
+            app:srcCompat="@drawable/imagem_padrao" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/activity_formulario_nome"
@@ -69,6 +69,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_valor_texto"
+                android:inputType="numberDecimal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

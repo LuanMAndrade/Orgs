@@ -1,9 +1,10 @@
 package com.example.orgs
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 class FormularioActivity : AppCompatActivity(R.layout.activity_formulario) {
@@ -13,6 +14,16 @@ class FormularioActivity : AppCompatActivity(R.layout.activity_formulario) {
         findViewById<Button>(R.id.button).setOnClickListener {
             configuraBotao(dao)
         }
+
+        val imageView2 = findViewById<ImageView>(R.id.imageView2)
+        imageView2.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setView(R.layout.caixa_dialogo)
+                .setPositiveButton("Confirmar", { _, _ -> })
+                .setNegativeButton("Cancelar", { _, _ -> })
+                .show()
+        }
+
 
     }
 
