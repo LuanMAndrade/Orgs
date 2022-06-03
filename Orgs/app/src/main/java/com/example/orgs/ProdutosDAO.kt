@@ -1,5 +1,7 @@
 package com.example.orgs
 
+import com.example.orgs.databinding.ActivityMainBinding
+
 class ProdutosDAO {
 
     fun add (produto : Produto) {

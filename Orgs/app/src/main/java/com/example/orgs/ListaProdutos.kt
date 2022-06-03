@@ -8,7 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.orgs.databinding.ProdutoBinding
 import java.util.*
+
+
 
 class ListaProdutos(private val context: Context, lista: List<Produto>) :
     RecyclerView.Adapter<ListaProdutos.ViewHolder>() {
@@ -24,7 +27,7 @@ class ListaProdutos(private val context: Context, lista: List<Produto>) :
             descricao.text = produto.descricao
             val valor = itemView.findViewById<TextView>(R.id.valor)
             val formatador = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                NumberFormat.getCurrencyInstance(Locale("pt", "br",))
+                NumberFormat.getCurrencyInstance(Locale("pt", "br"))
             } else {
                 TODO("VERSION.SDK_INT < N")
             }
