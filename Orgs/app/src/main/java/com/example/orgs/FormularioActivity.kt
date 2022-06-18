@@ -1,11 +1,6 @@
 package com.example.orgs
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
@@ -17,7 +12,7 @@ class FormularioActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityFormularioBinding.inflate(layoutInflater)
     }
-    var url : String? = null
+    var url: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,12 +27,14 @@ class FormularioActivity : AppCompatActivity() {
                 val bindingCaixa = CaixaDialogoBinding.inflate(layoutInflater)
                 AlertDialog.Builder(this)
                     .setView(bindingCaixa.root)
-                    .setPositiveButton("Confirmar", { _, _ -> binding.imageView2.load(bindingCaixa.url.text.toString())
-                    binding.root.refreshDrawableState()})
+                    .setPositiveButton("Confirmar", { _, _ ->
+                        binding.imageView2.load(bindingCaixa.url.text.toString())
+                        binding.root.refreshDrawableState()
+                    })
                     .setNegativeButton("Cancelar", { _, _ -> })
                     .show()
 
-                bindingCaixa.button2.setOnClickListener{
+                bindingCaixa.button2.setOnClickListener {
                     url = bindingCaixa.url.text.toString()
                     bindingCaixa.imageView3.load(url)
                     bindingCaixa.imageView3.refreshDrawableState()
