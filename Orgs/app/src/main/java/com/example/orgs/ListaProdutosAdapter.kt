@@ -3,28 +3,39 @@ package com.example.orgs
 import android.content.Context
 import android.icu.text.NumberFormat
 import android.os.Build
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.orgs.databinding.CaixaDialogoBinding
-import com.example.orgs.databinding.ProdutoBinding
 import java.util.*
 
 
-class ListaProdutos(private val context: Context, lista: List<Produto>) :
-    RecyclerView.Adapter<ListaProdutos.ViewHolder>() {
+class ListaProdutosAdapter(
+    private val context: Context,
+    lista: List<Produto>,
+    var quandoClicaNoItem: (produto: Produto) -> Unit = {})
+    : RecyclerView.Adapter<ListaProdutosAdapter.ViewHolder>() {
 
     private val lista = lista.toMutableList()
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+        private lateinit var produto: Produto
+
+        init {
+            itemView.setOnClickListener {
+                if (::produto.isInitialized) {
+                    quandoClicaNoItem(produto)
+                }
+            }
+        }
 
         fun vincula(produto: Produto) {
+            this.produto = produto
             val nome = itemView.findViewById<TextView>(R.id.nome)
             nome.text = produto.nome
             val descricao = itemView.findViewById<TextView>(R.id.descricao)

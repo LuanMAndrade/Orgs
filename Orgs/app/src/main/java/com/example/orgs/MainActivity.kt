@@ -2,14 +2,13 @@ package com.example.orgs
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.orgs.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private val dao = ProdutosDAO()
-    private val adapter = ListaProdutos(this, dao.search())
+    private val adapter = ListaProdutosAdapter(this, dao.search())
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
@@ -38,5 +37,11 @@ class MainActivity : AppCompatActivity() {
     private fun configuraRecyclerView() {
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
+        adapter.quandoClicaNoItem = {
+            val intent = Intent(this, DetalhesActivity::class.java)
+                .apply { putExtra("teste", it) }
+            startActivity(intent)
+
+        }
     }
 }
